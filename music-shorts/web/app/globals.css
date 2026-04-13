@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+  overscroll-behavior: none;
+}
+
+.feed-scroll {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+.feed-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-card {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100dvh;
+  position: relative;
+  flex-shrink: 0;
+}
+
+@keyframes eq1 { 0%,100%{height:20%} 50%{height:90%} }
+@keyframes eq2 { 0%,100%{height:50%} 25%{height:15%} 75%{height:85%} }
+@keyframes eq3 { 0%,100%{height:80%} 50%{height:25%} }
+@keyframes eq4 { 0%,100%{height:35%} 33%{height:95%} 66%{height:20%} }
+@keyframes eq5 { 0%,100%{height:60%} 50%{height:10%} }
+
+.eq-bar:nth-child(5n+1) { animation-name: eq1; }
+.eq-bar:nth-child(5n+2) { animation-name: eq2; }
+.eq-bar:nth-child(5n+3) { animation-name: eq3; }
+.eq-bar:nth-child(5n+4) { animation-name: eq4; }
+.eq-bar:nth-child(5n+5) { animation-name: eq5; }
